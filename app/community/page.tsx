@@ -1,7 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import PostCard from "@/components/PostCard";
 import { CommunityPost } from "@/types";
 
 export default function CommunityPage() {
+  const [activeCategory, setActiveCategory] = useState("전체");
   // Mock data for initial render
   const mockPosts: CommunityPost[] = [
     {
@@ -47,8 +51,12 @@ export default function CommunityPage() {
           {["전체", "진행중인 투표", "사람 건강", "반려동물", "꿀팁", "질문"].map((tag, i) => (
             <button 
               key={tag} 
-              className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-                i === 0 
+              onClick={() => {
+                setActiveCategory(tag);
+                console.log(`Selected category: ${tag}`);
+              }}
+              className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border transition-colors active:scale-95 ${
+                activeCategory === tag
                   ? "bg-gray-900 text-white border-gray-900" 
                   : "bg-white text-gray-600 border-[var(--color-border)] hover:bg-gray-50"
               }`}

@@ -1,19 +1,43 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useStore } from "@/store/useStore";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const user = useStore((state) => state.user);
+  const logout = useStore((state) => state.logout);
+  const router = useRouter();
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)] px-6 pt-12 pb-8">
-      {/* Header */}
       <header className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-bold text-[var(--color-text-main)]">
-            안녕하세요, <br />
+            안녕하세요{user ? `, ${user.name}님` : ""}<br />
             <span className="text-[var(--color-accent)]">포켓 닥터</span>입니다.
           </h1>
           <p className="text-sm text-[var(--color-text-sub)] mt-2">
             누구의 건강을 살펴볼까요?
           </p>
+        </div>
+        {/* Auth Button */}
+        <div>
+          {user ? (
+            <button 
+              onClick={() => logout()}
+              className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-xs font-bold rounded-full transition-colors text-gray-700 active:scale-95 shadow-sm"
+            >
+              로그아웃
+            </button>
+          ) : (
+            <Link 
+              href="/login"
+              className="px-4 py-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-xs font-bold text-white rounded-full transition-colors active:scale-95 shadow-sm inline-block"
+            >
+              로그인
+            </Link>
+          )}
         </div>
       </header>
 

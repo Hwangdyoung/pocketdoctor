@@ -33,7 +33,7 @@ export default function PetSymptomPage() {
             📷
           </div>
           <div className="text-center">
-            <h3 className="font-bold text-sm">사진으로 состояние 학인</h3>
+            <h3 className="font-bold text-sm">사진으로 증상 확인</h3>
             <p className="text-xs text-[var(--color-text-sub)] mt-1">상처나 이상 부위를 찍어주세요 🐶🐱</p>
           </div>
           <button className="w-full mt-2 bg-gray-900 text-white text-sm font-medium py-3 rounded-xl hover:bg-gray-800 transition-colors">

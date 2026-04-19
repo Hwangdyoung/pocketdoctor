@@ -18,6 +18,8 @@ const Map = dynamic(
 );
 
 export default function MapPage() {
+  const [activeCategory, setActiveCategory] = useState("전체");
+
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)]">
       {/* Header */}
@@ -34,8 +36,12 @@ export default function MapPage() {
           {["전체", "내과", "소아과", "이비인후과", "동물병원", "24시간"].map((tag, i) => (
             <button 
               key={tag} 
-              className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-                i === 0 
+              onClick={() => {
+                setActiveCategory(tag);
+                console.log(`Selected map category: ${tag}`);
+              }}
+              className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border transition-colors active:scale-95 ${
+                activeCategory === tag
                   ? "bg-gray-900 text-white border-gray-900" 
                   : "bg-white text-gray-600 border-[var(--color-border)] hover:bg-gray-50"
               }`}
