@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text-main);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-border: var(--color-border);
+  --color-text-main: var(--color-text-main);
+  --color-text-sub: var(--color-text-sub);
+  --color-danger: var(--color-danger);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --font-sans: var(--font-noto-sans-kr), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-hover: var(--shadow-hover);
+}
+
+body {
+  background: #E5E5E5; /* Parent bg */
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 9:16 Mobile Container */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  max-width: 440px;
+  max-height: 850px;
+  background-color: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 441px) {
+  .app-container {
+    height: 90vh; /* Fixed height on desktop */
+    aspect-ratio: 9/16;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Hide scrollbar for clean app-like scrollable areas */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
