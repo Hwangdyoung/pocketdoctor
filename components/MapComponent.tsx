@@ -76,7 +76,7 @@ export default function MapComponent() {
             <Popup>
               <div className="min-w-[120px]">
                 <h3 className="font-bold text-sm mb-1">{hospital.name}</h3>
-                <span className="inline-block px-2 text-[10px] bg-gray-100 rounded text-gray-600 mb-2">
+                <span className="inline-block px-2 text-[10px] bg-gray-100 dark:bg-neutral-700 rounded text-gray-600 dark:text-neutral-300 mb-2">
                   {hospital.type}
                 </span>
                 <p className="text-xs text-red-500 font-medium">대기: {hospital.waitTime}</p>
@@ -88,7 +88,7 @@ export default function MapComponent() {
 
       {/* Target button floating over map */}
       <button 
-        className="absolute bottom-6 right-6 z-[400] w-12 h-12 bg-white rounded-full shadow-lg border border-[var(--color-border)] flex items-center justify-center text-xl text-gray-700 hover:text-black transition-colors"
+        className="absolute bottom-6 right-6 z-[400] w-12 h-12 bg-white text-black dark:bg-neutral-900 dark:text-white rounded-full shadow-lg border border-gray-200 dark:border-neutral-800 flex items-center justify-center text-xl hover:bg-gray-50 dark:hover:bg-neutral-800 transition-all active:scale-95"
         onClick={() => {
           if (navigator.geolocation) {
              navigator.geolocation.getCurrentPosition(

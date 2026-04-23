@@ -22,7 +22,7 @@ export default function LoginPage() {
               await signIn("google", { redirectTo: "/" });
             }}
           >
-            <button className="w-full relative flex items-center justify-center gap-3 bg-white border border-[var(--color-border)] text-gray-700 py-3.5 px-4 rounded-xl font-medium shadow-sm hover:shadow-md transition-shadow">
+            <button className="w-full relative flex items-center justify-center gap-3 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 py-3.5 px-4 rounded-xl font-medium shadow-sm hover:shadow-md transition-shadow">
               <span className="absolute left-5 text-xl">G</span>
               구글로 계속하기
             </button>
@@ -34,7 +34,7 @@ export default function LoginPage() {
               await signIn("apple", { redirectTo: "/" });
             }}
           >
-            <button className="w-full relative flex items-center justify-center gap-3 bg-black text-white py-3.5 px-4 rounded-xl font-medium shadow-sm hover:shadow-md transition-shadow">
+            <button className="w-full relative flex items-center justify-center gap-3 bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white py-3.5 px-4 rounded-xl font-medium shadow-sm hover:shadow-md transition-shadow">
               <span className="absolute left-5 text-xl"></span>
               Apple로 계속하기
             </button>
@@ -42,7 +42,7 @@ export default function LoginPage() {
 
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-[var(--color-border)]"></div>
+              <div className="w-full border-t border-zinc-100 dark:border-zinc-800"></div>
             </div>
             <div className="relative flex justify-center text-xs">
               <span className="bg-[var(--color-bg)] px-4 text-[var(--color-text-sub)]">또는</span>
@@ -61,9 +61,9 @@ export default function LoginPage() {
               name="email"
               placeholder="이메일 주소" 
               required
-              className="w-full bg-white border border-[var(--color-border)] px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-all"
+              className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-all text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500"
             />
-            <button type="submit" className="w-full flex items-center justify-center gap-3 bg-[var(--color-accent)] text-white py-3.5 px-4 rounded-xl font-medium shadow-sm hover:bg-[var(--color-accent-hover)] transition-colors">
+            <button type="submit" className="w-full flex items-center justify-center gap-3 bg-white text-zinc-900 dark:bg-[var(--color-accent)] dark:text-white py-3.5 px-4 border border-zinc-200 dark:border-none rounded-xl font-medium shadow-sm hover:bg-zinc-50 dark:hover:bg-[var(--color-accent-hover)] transition-colors">
               이메일로 계속하기
             </button>
           </form>

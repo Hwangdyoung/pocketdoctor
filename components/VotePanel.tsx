@@ -35,7 +35,7 @@ export default function VotePanel({ initialVoted = false }: VotePanelProps) {
   };
 
   return (
-    <div className="bg-white border text-sm border-[var(--color-border)] rounded-2xl p-5 w-full my-4 shadow-sm">
+    <div className="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5 w-full my-4 shadow-sm">
       <div className="flex items-center gap-2 mb-4">
         <span className="text-xl">🗳️</span>
         <h3 className="font-bold">커뮤니티의 생각은?</h3>
@@ -47,7 +47,7 @@ export default function VotePanel({ initialVoted = false }: VotePanelProps) {
             key={option.id}
             onClick={() => handleVote(option.id)}
             disabled={hasVoted}
-            className="w-full relative overflow-hidden rounded-xl h-11 border border-[var(--color-border)] text-left hover:border-[var(--color-accent)] transition-all group disabled:cursor-default disabled:hover:border-[var(--color-border)]"
+            className="w-full relative overflow-hidden rounded-xl h-11 border border-zinc-100 dark:border-zinc-800 text-left hover:border-[var(--color-accent)] transition-all group disabled:cursor-default disabled:hover:border-zinc-100"
           >
             {/* Background Percentage Bar (only visible after vote) */}
             <div 
@@ -56,7 +56,7 @@ export default function VotePanel({ initialVoted = false }: VotePanelProps) {
             ></div>
             
             <div className="absolute inset-0 flex items-center justify-between px-4 z-10">
-              <span className={`font-medium ${hasVoted ? 'text-gray-800' : 'text-gray-600 group-hover:text-black'}`}>
+              <span className={`font-medium ${hasVoted ? 'text-zinc-800 dark:text-zinc-200' : 'text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white'}`}>
                 {option.label}
               </span>
               {hasVoted && (

@@ -31,12 +31,12 @@ export default function ChatInput({ onSend, isLoading = false }: ChatInputProps)
   return (
     <div className="absolute bottom-0 left-0 w-full bg-[var(--color-bg)] border-t border-[var(--color-border)] p-4 pb-safe z-10">
       <form onSubmit={handleSubmit} className="flex gap-2 items-end">
-        <div className="flex-1 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm focus-within:border-[var(--color-accent)] focus-within:ring-1 focus-within:ring-[var(--color-accent)] transition-all overflow-hidden relative">
+        <div className="flex-1 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-sm focus-within:border-[var(--color-accent)] focus-within:ring-1 focus-within:ring-[var(--color-accent)] transition-all overflow-hidden relative">
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={`예: ${examples[placeholderIndex]}`}
-            className="w-full bg-transparent p-4 outline-none text-sm resize-none min-h-[56px] max-h-[120px] hide-scrollbar"
+            className="w-full bg-transparent p-4 outline-none text-zinc-900 dark:text-white text-sm resize-none min-h-[56px] max-h-[120px] hide-scrollbar"
             rows={1}
             disabled={isLoading}
             onInput={(e) => {
@@ -49,7 +49,7 @@ export default function ChatInput({ onSend, isLoading = false }: ChatInputProps)
         <button
           type="submit"
           disabled={!input.trim() || isLoading}
-          className="w-14 h-[56px] flex items-center justify-center bg-[var(--color-accent)] text-white rounded-2xl shadow-sm disabled:opacity-50 disabled:bg-gray-300 transition-colors"
+          className="w-14 h-[56px] flex items-center justify-center bg-white text-zinc-900 dark:bg-[var(--color-accent)] dark:text-white rounded-2xl shadow-sm border border-zinc-200 dark:border-none disabled:opacity-50 disabled:bg-zinc-100 dark:disabled:bg-zinc-600 transition-colors"
         >
           {isLoading ? (
             <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

@@ -9,8 +9,8 @@ const Map = dynamic(
   { 
     ssr: false,
     loading: () => (
-      <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50">
-        <div className="w-8 h-8 rounded-full border-4 border-gray-200 border-t-[var(--color-accent)] animate-spin mb-4"></div>
+      <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 dark:bg-neutral-900">
+        <div className="w-8 h-8 rounded-full border-4 border-gray-200 dark:border-neutral-700 border-t-[var(--color-accent)] animate-spin mb-4"></div>
         <p className="text-sm font-medium text-gray-500">지도를 불러오는 중입니다...</p>
       </div>
     )
@@ -23,7 +23,7 @@ export default function MapPage() {
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)]">
       {/* Header */}
-      <header className="px-6 py-4 bg-white sticky top-0 z-10 border-b border-[var(--color-border)] shadow-sm">
+      <header className="px-6 py-4 bg-white dark:bg-neutral-800 sticky top-0 z-10 border-b border-[var(--color-border)] shadow-sm">
         <h1 className="text-xl font-bold flex items-center gap-2">
           <span>📍</span> 주변 병원 찾기
         </h1>
@@ -42,8 +42,8 @@ export default function MapPage() {
               }}
               className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border transition-colors active:scale-95 ${
                 activeCategory === tag
-                  ? "bg-gray-900 text-white border-gray-900" 
-                  : "bg-white text-gray-600 border-[var(--color-border)] hover:bg-gray-50"
+                  ? "bg-gray-100 dark:bg-neutral-100 text-gray-900 dark:text-gray-900 border-gray-300 dark:border-neutral-100" 
+                  : "bg-white dark:bg-neutral-800 text-gray-600 dark:text-gray-300 border-[var(--color-border)] hover:bg-gray-50 dark:hover:bg-neutral-700"
               }`}
             >
               {tag}

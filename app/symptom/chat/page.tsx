@@ -91,17 +91,17 @@ function ChatContent() {
   return (
     <div className="flex flex-col h-[100dvh] bg-[var(--color-bg)]">
       {/* Header */}
-      <header className="flex items-center px-4 py-4 bg-white/80 backdrop-blur-md border-b border-[var(--color-border)] sticky top-0 z-20">
-        <Link href={`/symptom/${type}`} className="p-2 -ml-2 text-xl">
+      <header className="flex items-center px-4 py-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-zinc-100 dark:border-zinc-800 sticky top-0 z-20">
+        <Link href={`/symptom/${type}`} className="p-2 -ml-2 text-xl dark:text-neutral-200">
           ←
         </Link>
         <div className="ml-2 flex items-center gap-2">
-          <div className="w-8 h-8 bg-[var(--color-accent)]/20 rounded-full flex items-center justify-center text-sm">
+          <div className="w-8 h-8 bg-gray-100 dark:bg-[var(--color-accent)]/20 rounded-full flex items-center justify-center text-sm border border-gray-200 dark:border-none">
             🤖
           </div>
           <div>
-            <h1 className="text-sm font-bold">AI 건강 비서</h1>
-            <p className="text-[10px] text-[var(--color-text-sub)]">
+            <h1 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">AI 건강 비서</h1>
+            <p className="text-[10px] text-zinc-500">
               {type === "pet" ? "반려동물 건강 분석 모드" : "일반 건강 분석 모드"}
             </p>
           </div>
@@ -116,7 +116,7 @@ function ChatContent() {
           <div className="w-8 h-8 rounded-full bg-[var(--color-accent)]/20 flex-shrink-0 flex items-center justify-center text-xs">
             🤖
           </div>
-          <div className="bg-white border border-[var(--color-border)] rounded-2xl rounded-tl-sm p-4 text-sm shadow-sm max-w-[85%] leading-relaxed">
+          <div className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-2xl rounded-tl-sm p-4 text-sm shadow-sm max-w-[85%] leading-relaxed text-zinc-800 dark:text-zinc-100">
             안녕하세요. 증상을 자세히 말씀해주시면, AI가 상태를 분석하여 가능한 원인과 대처법을 안내해 드립니다.
           </div>
         </div>
@@ -125,14 +125,14 @@ function ChatContent() {
         {messages.map((msg, i) => (
           <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
             {msg.role === "ai" && (
-              <div className="w-8 h-8 rounded-full bg-[var(--color-accent)]/20 flex-shrink-0 flex items-center justify-center text-xs">
+              <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-[var(--color-accent)]/20 flex-shrink-0 flex items-center justify-center text-xs border border-gray-200 dark:border-none">
                 🤖
               </div>
             )}
             <div className={`p-4 rounded-2xl text-sm shadow-sm max-w-[85%] leading-relaxed ${
               msg.role === "user" 
-                ? "bg-[var(--color-accent)] text-white rounded-tr-sm" 
-                : "bg-white border border-[var(--color-border)] rounded-tl-sm text-[var(--color-text-main)]"
+                ? "bg-pink-100 text-pink-900 dark:bg-[var(--color-accent)] dark:text-white rounded-tr-sm border border-pink-200 dark:border-none" 
+                : "bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-tl-sm text-zinc-900 dark:text-zinc-100"
             }`}>
               {msg.content}
             </div>
@@ -144,11 +144,11 @@ function ChatContent() {
             <div className="w-8 h-8 rounded-full bg-[var(--color-accent)]/20 flex-shrink-0 flex items-center justify-center text-xs">
               🤖
             </div>
-            <div className="bg-white border border-[var(--color-border)] rounded-2xl rounded-tl-sm p-4 py-5 shadow-sm">
+            <div className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-2xl rounded-tl-sm p-4 py-5 shadow-sm">
               <div className="flex gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-gray-300 animate-bounce"></div>
-                <div className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-                <div className="w-2 h-2 rounded-full bg-gray-300 animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+                <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-neutral-600 animate-bounce"></div>
+                <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-neutral-600 animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-neutral-600 animate-bounce" style={{ animationDelay: "0.4s" }}></div>
               </div>
             </div>
           </div>

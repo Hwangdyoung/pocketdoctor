@@ -24,7 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         if (!credentials?.email) return null;
-        
+
         let user = await db.user.findUnique({
           where: { email: credentials.email as string },
         });
@@ -37,7 +37,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
           });
         }
-        
+
         return user;
       },
     }),

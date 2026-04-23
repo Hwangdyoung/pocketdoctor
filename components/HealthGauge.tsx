@@ -46,8 +46,8 @@ export default function HealthGauge({ score }: HealthGaugeProps) {
   const strokeDashoffset = circumference - (animatedScore / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-[var(--color-border)] p-6 flex flex-col items-center mb-4 w-full">
-      <h3 className="font-bold text-[var(--color-text-main)] mb-4 w-full">건강 게이지</h3>
+    <div className="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white rounded-2xl p-6 shadow-sm border border-zinc-200 dark:border-zinc-800 flex flex-col items-center mb-4 w-full">
+      <h3 className="font-bold text-zinc-900 dark:text-zinc-100 mb-4 w-full">건강 게이지</h3>
       
       <div className="relative w-32 h-32 flex items-center justify-center">
         {/* Background Circle */}
@@ -57,7 +57,7 @@ export default function HealthGauge({ score }: HealthGaugeProps) {
             stroke="currentColor" 
             strokeWidth="8" 
             fill="transparent" 
-            className="text-gray-100" 
+            className="text-gray-100 dark:text-neutral-700" 
           />
           <circle 
             cx="64" cy="64" r={radius} 
@@ -78,7 +78,7 @@ export default function HealthGauge({ score }: HealthGaugeProps) {
         </div>
       </div>
       
-      <p className="text-sm font-medium mt-4 text-center">
+      <p className="text-sm font-medium mt-4 text-center dark:text-neutral-200">
         {getMessage(animatedScore)}
       </p>
     </div>

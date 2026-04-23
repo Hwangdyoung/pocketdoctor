@@ -1,19 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
-import { useStore } from "@/store/useStore";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes";
 
-export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const isDarkMode = useStore((state) => state.isDarkMode);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
-
-  // Ensure hydration match by rendering children immediately
-  return <>{children}</>;
+export default function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return (
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem={false}
+      {...props}
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }

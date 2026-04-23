@@ -6,25 +6,24 @@ interface User {
   name: string;
 }
 
-interface AppState {
+interface UserState {
   user: User | null;
-  isDarkMode: boolean;
+  isLoggedIn: boolean;
   login: (user: User) => void;
   logout: () => void;
-  toggleDarkMode: () => void;
 }
 
-export const useStore = create<AppState>()(
+export const useStore = create<UserState>()(
   persist(
     (set) => ({
       user: null,
-      isDarkMode: false,
-      login: (user) => set({ user }),
-      logout: () => set({ user: null }),
-      toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+      isLoggedIn: false,
+
+      login: (user: User) => set({ user, isLoggedIn: true }),
+      logout: () => set({ user: null, isLoggedIn: false }),
     }),
     {
-      name: "pocket-doctor-storage", // name of the item in the storage (must be unique)
+      name: "app-storage",
     }
   )
 );

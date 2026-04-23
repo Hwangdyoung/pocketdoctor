@@ -20,7 +20,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="absolute bottom-0 w-full bg-white border-t border-[var(--color-border)] pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+    <nav className="absolute bottom-0 w-full bg-white/95 text-zinc-900 border-t border-zinc-200 dark:bg-zinc-900/95 dark:text-white dark:border-zinc-800 pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
       <div className="flex justify-around items-center h-16 px-2">
         {navItems.map((item) => {
           const isActive = pathname === item.path || (item.path !== "/" && pathname.startsWith(item.path) && !item.isCenter);
@@ -30,7 +30,7 @@ export default function BottomNav() {
               <Link
                 key={item.path}
                 href={item.path}
-                className="relative -top-5 flex items-center justify-center w-14 h-14 bg-[var(--color-accent)] text-white rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95"
+                className="relative -top-5 flex items-center justify-center w-14 h-14 bg-white text-zinc-900 dark:bg-[var(--color-accent)] dark:text-white rounded-full shadow-lg border border-zinc-200 dark:border-none transition-transform hover:scale-105 active:scale-95"
               >
                 <span className="text-2xl">{item.icon}</span>
               </Link>
@@ -42,7 +42,7 @@ export default function BottomNav() {
               key={item.path}
               href={item.path}
               className={`flex flex-col items-center justify-center w-16 h-full transition-colors ${
-                isActive ? "text-[var(--color-accent)]" : "text-[var(--color-text-sub)] hover:text-[var(--color-text-main)]"
+                isActive ? "text-[var(--color-accent)]" : "text-[var(--color-text-sub)] hover:text-[var(--color-text-main)] dark:hover:text-white"
               }`}
             >
               <span className="text-xl mb-1">{item.icon}</span>

@@ -38,7 +38,7 @@ export default function CommunityPage() {
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)]">
       {/* Header */}
-      <header className="px-6 py-4 bg-white sticky top-0 z-10 border-b border-[var(--color-border)]">
+      <header className="px-6 py-4 bg-white dark:bg-neutral-800 sticky top-0 z-10 border-b border-[var(--color-border)]">
         <h1 className="text-xl font-bold flex items-center gap-2">
           <span>🧑‍🤝‍🧑</span> 건강 커뮤니티
         </h1>
@@ -57,8 +57,8 @@ export default function CommunityPage() {
               }}
               className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-medium border transition-colors active:scale-95 ${
                 activeCategory === tag
-                  ? "bg-gray-900 text-white border-gray-900" 
-                  : "bg-white text-gray-600 border-[var(--color-border)] hover:bg-gray-50"
+                  ? "bg-gray-100 dark:bg-neutral-100 text-gray-900 dark:text-gray-900 border-gray-300 dark:border-neutral-100" 
+                  : "bg-white dark:bg-neutral-800 text-gray-600 dark:text-gray-300 border-[var(--color-border)] hover:bg-gray-50 dark:hover:bg-neutral-700"
               }`}
             >
               {tag}

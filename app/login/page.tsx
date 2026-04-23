@@ -43,7 +43,7 @@ export default function LoginPage() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-white border border-[var(--color-border)] px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-all"
+            className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-all text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500"
           />
           <input 
             type="password" 
@@ -51,17 +51,17 @@ export default function LoginPage() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full bg-white border border-[var(--color-border)] px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-all"
+            className="w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-all text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500"
           />
-          <button type="submit" className="mt-2 w-full flex items-center justify-center gap-3 bg-[var(--color-accent)] text-white py-3.5 px-4 rounded-xl font-medium shadow-sm hover:bg-[var(--color-accent-hover)] transition-colors active:scale-[0.98]">
+          <button type="submit" className="mt-2 w-full flex items-center justify-center gap-3 bg-white text-zinc-900 dark:bg-[var(--color-accent)] dark:text-white py-3.5 px-4 rounded-xl font-medium shadow-sm border border-zinc-200 dark:border-none hover:bg-zinc-50 dark:hover:bg-[var(--color-accent-hover)] transition-colors active:scale-[0.98]">
             로그인
           </button>
         </form>
 
-        <div className="mt-6 flex justify-center gap-4 text-xs text-[var(--color-text-sub)]">
-          <button className="hover:text-black">비밀번호 찾기</button>
+        <div className="mt-6 flex justify-center gap-4 text-xs text-zinc-500 dark:text-zinc-400">
+          <button className="hover:text-zinc-900 dark:hover:text-white transition-colors">비밀번호 찾기</button>
           <span>|</span>
-          <button className="hover:text-[var(--color-accent)] font-medium">회원가입</button>
+          <button className="hover:text-[var(--color-accent)] font-medium transition-colors">회원가입</button>
         </div>
       </div>
     </div>
