@@ -9,12 +9,16 @@ export default function Home() {
   const user = useStore((state) => state.user);
   const logout = useStore((state) => state.logout);
   const router = useRouter();
+  const displayName = user
+    ? user.name || user.email.split("@")[0]
+    : "";
+
   return (
     <div className="flex flex-col h-full bg-[var(--color-bg)] px-6 pt-12 pb-8">
       <header className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-bold text-[var(--color-text-main)]">
-            안녕하세요{user ? `, ${user.name}님` : ""}<br />
+            안녕하세요{displayName ? `, ${displayName}님` : ""}<br />
             <span className="text-[var(--color-accent)]">포켓 닥터</span>입니다.
           </h1>
           <p className="text-sm text-[var(--color-text-sub)] mt-2">

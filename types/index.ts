@@ -38,6 +38,8 @@ export interface CommunityPost {
   id: string;
   userId: string;
   user?: User;
+  title?: string | null;
+  category?: string | null;
   content: string;
   imageUrl?: string | null;
   createdAt: string | Date;

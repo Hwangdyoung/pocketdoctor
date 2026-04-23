@@ -22,7 +22,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       credentials: {
         email: { label: "Email", type: "email" },
       },
-      async authorize(credentials) {
+    async authorize(credentials) {
         if (!credentials?.email) return null;
 
         let user = await db.user.findUnique({
@@ -38,7 +38,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           });
         }
 
-        return user;
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        };
       },
     }),
   ],
@@ -47,14 +51,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   callbacks: {
     async session({ session, token }) {
-      if (token.sub && session.user) {
-        session.user.id = token.sub;
+      if (token && session.user) {
+        session.user.id = token.id as string;
+        session.user.name = token.name as string;
+        session.user.email = token.email as string;
       }
       return session;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
       if (user) {
-        token.sub = user.id;
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
+      }
+      if (trigger === "update" && session?.name) {
+        token.name = session.name;
       }
       return token;
     },

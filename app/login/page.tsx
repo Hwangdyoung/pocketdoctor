@@ -10,17 +10,38 @@ export default function LoginPage() {
   const login = useStore((state) => state.login);
   const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) return;
 
-    // Mock successful login
-    login({
-      email,
-      name: email.split("@")[0] || "User",
-    });
+    try {
+      const { signIn } = await import("next-auth/react");
+      const result = await signIn("credentials", {
+        email,
+        redirect: false,
+      });
 
-    router.push("/");
+      if (result?.error) {
+        alert("로그인에 실패했습니다.");
+        return;
+      }
+
+      // Fetch the updated session to get the real name from DB
+      const res = await fetch("/api/auth/session");
+      const session = await res.json();
+      
+      if (session?.user) {
+        login({
+          email: session.user.email,
+          name: session.user.name || session.user.email.split("@")[0],
+        });
+      }
+
+      router.push("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("오류가 발생했습니다.");
+    }
   };
 
   return (
